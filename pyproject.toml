@@ -41,7 +41,7 @@ y2 = "y2.__main__:app"
 source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
-version-file = "y2/_version.py"
+version-file = "src/y2/_version.py"
 template = '''
 version = "{version}"
 '''
