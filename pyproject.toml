@@ -26,12 +26,16 @@ keywords = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "cyclopts>=3.19.0",
 ]
 dynamic = ["version"]
 
 [project.urls]
 Home = "https://github.com/mangoumbrella/y2"
 Source = "https://github.com/mangoumbrella/y2"
+
+[project.scripts]
+y2 = "y2.__main__:app"
 
 [tool.hatch.version]
 source = "vcs"
