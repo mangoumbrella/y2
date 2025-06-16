@@ -1,5 +1,4 @@
 import pathlib
-import sys
 import tempfile
 import queue
 import threading
@@ -17,7 +16,10 @@ from y2._console import console
 _ROOT_URL = "https://developer.apple.com/design/human-interface-guidelines"
 
 
-app = cyclopts.App(name="hig")
+app = cyclopts.App(
+    name="hig",
+    help="Download and extract information from Apple's Human Interface Guidelines for the Daily HIG bot.",
+)
 
 
 @app.command()
@@ -31,7 +33,7 @@ def download(
         to = pathlib.Path(tempfile.mkdtemp(prefix="y2.hig."))
     else:
         if to.exists():
-            sys.exit(f"Directory {to} already exists")
+            console.fatal(f"Directory {to} already exists")
         to.mkdir(parents=True)
 
     console.print("Downloading Apple's HIG to", to)

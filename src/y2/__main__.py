@@ -2,6 +2,7 @@ import cyclopts
 
 import y2
 from y2 import hig
+from y2 import xcode
 
 app = cyclopts.App(
     name="y2",
@@ -9,6 +10,7 @@ app = cyclopts.App(
     version=y2.__version__,
 )
 app.command(hig.app)
+app.command(xcode.app)
 
 
 if __name__ == "__main__":
