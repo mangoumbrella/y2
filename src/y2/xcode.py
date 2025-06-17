@@ -1,10 +1,13 @@
 from datetime import datetime
-import re
+import os
 import pathlib
+import re
+import subprocess
 
 import cyclopts
 
 from y2._console import console
+from y2._tempdirs import mkdtemp
 
 
 app = cyclopts.App(
@@ -66,3 +69,31 @@ def bump(
             content,
         )
     pbxproj.write_text(content)
+
+
+@app.command
+def build_and_upload(project_dir: pathlib.Path | None = None):
+    """Build and upload the project using fastlane."""
+    if project_dir:
+        project_dir = project_dir.absolute()
+    else:
+        project_dir = pathlib.Path.cwd()
+
+    if not (project_dir / "fastlane" / "Gymfile").exists():
+        console.fatal(
+            "Missing the fastlane/Gymfile file. (Run `fastlane gym init` to initialize.)"
+        )
+
+    depot_dir = project_dir.absolute()
+    if not (depot_dir / ".git").exists():
+        depot_dir = depot_dir.parent
+
+    tmp_dir = mkdtemp(prefix="build.")
+    console.print(f"Copying {depot_dir!s} to {tmp_dir!s}")
+    work_dir = tmp_dir / depot_dir.name / project_dir.relative_to(depot_dir)
+    subprocess.check_call(["cp", "-r", depot_dir, tmp_dir])
+    env = os.environ.copy()
+    env["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "120"
+    subprocess.check_call(
+        ["bundle", "exec", "fastlane", "build_and_upload"], env=env, cwd=work_dir
+    )
