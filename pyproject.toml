@@ -2,7 +2,6 @@
 requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
-
 [project]
 name = "y2"
 description = "Why have two when one will do?"

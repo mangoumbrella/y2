@@ -10,8 +10,8 @@ Why have two when one will do?
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md).
+See [CHANGELOG.md](https://github.com/mangoumbrella/y2/blob/main/CHANGELOG.md).
 
 ## License
 
-[y2](https://github.com/mangoumbrella/y2) is licensed under the terms of the Apache license. See [LICENSE](LICENSE) for more information.
+[y2](https://github.com/mangoumbrella/y2) is licensed under the terms of the Apache license. See [LICENSE](https://github.com/mangoumbrella/y2/blob/main/LICENSE) for more information.
