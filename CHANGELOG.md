@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-Nothing noticeable unreleased.
+- `y2` now depends on `yib`.
 
 ## v2025.3: Three in one
 
