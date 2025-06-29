@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## v2025.4
+
+- Added a new `y2 pv [PACKAGE]` command to print the installed PyPI package version.
+- `y2` now supports running under Python 3.10-3.12.
 - `y2` now depends on `yib`.
 
 ## v2025.3: Three in one
