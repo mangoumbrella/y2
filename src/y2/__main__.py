@@ -3,6 +3,7 @@ import cyclopts
 import y2
 from y2 import clean
 from y2 import hig
+from y2 import pv
 from y2 import xcode
 
 app = cyclopts.App(
@@ -13,6 +14,7 @@ app = cyclopts.App(
 app.command(hig.app)
 app.command(xcode.app)
 app.command(clean.clean)
+app.command(pv.pv)
 
 
 if __name__ == "__main__":
