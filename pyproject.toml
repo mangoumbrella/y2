@@ -50,3 +50,8 @@ version-file = "src/y2/_version.py"
 template = '''
 version = "{version}"
 '''
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+]
