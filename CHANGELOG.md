@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Improved startup time for commands other than `y2 hig`.
+
 ## v2025.4
 
 - Added a new `y2 pv [PACKAGE]` command to print the installed PyPI package version.
