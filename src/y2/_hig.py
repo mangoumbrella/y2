@@ -20,7 +20,6 @@ def download(
     num_threads: int = 8,
     website_loading_wait_seconds: float = 5.0,
 ):
-    """Download Apple's HIG to a directory."""
     if to is None:
         to = pathlib.Path(tempfile.mkdtemp(prefix="y2.hig."))
     else:
@@ -42,7 +41,6 @@ def download(
 
 
 def extract(hig_directory: pathlib.Path):
-    """Extract information from downloaded Apple's HIG."""
     urls_to_lines: dict[str, str] = {}
     for root, _, filenames in hig_directory.walk():
         for filename in filenames:
