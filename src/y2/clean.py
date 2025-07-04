@@ -1,5 +1,5 @@
 def clean() -> None:
     """Clean up temp files used by 2."""
-    from . import _clean
+    from . import clean_tmpl
 
-    return _clean.clean()
+    return clean_tmpl.clean()

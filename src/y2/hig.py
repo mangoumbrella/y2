@@ -16,9 +16,9 @@ def download(
     website_loading_wait_seconds: float = 5.0,
 ):
     """Download Apple's HIG to a directory."""
-    from . import _hig
+    from . import hig_impl
 
-    return _hig.download(
+    return hig_impl.download(
         to=to,
         num_threads=num_threads,
         website_loading_wait_seconds=website_loading_wait_seconds,
@@ -28,6 +28,6 @@ def download(
 @app.command()
 def extract(hig_directory: pathlib.Path):
     """Extract information from downloaded Apple's HIG."""
-    from . import _hig
+    from . import hig_impl
 
-    return _hig.extract(hig_directory=hig_directory)
+    return hig_impl.extract(hig_directory=hig_directory)

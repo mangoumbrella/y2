@@ -16,9 +16,9 @@ def bump(
     store_version_bump_year: bool = False,
 ):
     """Bump app versions."""
-    from . import _xcode
+    from . import xcode_impl
 
-    return _xcode.bump(
+    return xcode_impl.bump(
         xcode_project=xcode_project,
         store_version=store_version,
         store_version_bump_year=store_version_bump_year,
@@ -28,6 +28,6 @@ def bump(
 @app.command
 def build_and_upload(project_dir: pathlib.Path | None = None):
     """Build and upload the project using fastlane."""
-    from . import _xcode
+    from . import xcode_impl
 
-    return _xcode.build_and_upload(project_dir=project_dir)
+    return xcode_impl.build_and_upload(project_dir=project_dir)
