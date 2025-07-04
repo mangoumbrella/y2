@@ -4,8 +4,7 @@ import pathlib
 import re
 import subprocess
 
-from y2._console import console
-from y2._tempdirs import mkdtemp
+from y2._config import console, mkdtemp
 
 
 _PBXPROJ = "project.pbxproj"

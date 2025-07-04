@@ -9,7 +9,7 @@ import bs4
 from selenium import webdriver
 from selenium.webdriver.common import by
 
-from y2._console import console
+from y2._config import console
 
 
 _ROOT_URL = "https://developer.apple.com/design/human-interface-guidelines"

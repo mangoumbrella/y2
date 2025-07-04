@@ -1,6 +1,11 @@
 import pathlib
 import tempfile
 
+from yib.yconsole import Console
+
+
+console = Console(stderr=True)
+
 
 def get_tempdir_root() -> pathlib.Path:
     return pathlib.Path(tempfile.gettempdir()) / "y2"

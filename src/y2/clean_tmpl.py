@@ -1,7 +1,6 @@
 import shutil
 
-from y2._console import console
-from y2._tempdirs import get_tempdir_root
+from y2._config import console, get_tempdir_root
 
 
 def clean() -> None:
