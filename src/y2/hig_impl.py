@@ -69,8 +69,8 @@ def extract(hig_directory: pathlib.Path):
 
             primary_elements = soup.find_all("div", {"class": "primary-content"})
             if len(primary_elements) != 1:
-                console.print(
-                    f"WARNING: Found {len(primary_elements)} primary-content on {path}, ignoring"
+                console.warning(
+                    f"Found {len(primary_elements)} primary-content on {path}, ignoring"
                 )
                 continue
             content_root = primary_elements[0]

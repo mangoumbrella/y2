@@ -31,7 +31,7 @@ dependencies = [
     "beautifulsoup4>=4.13.4",
     "cyclopts>=3.19.0",
     "selenium>=4.33.0",
-    "yib>=0.2.0",
+    "yib>=0.3.0",
 ]
 dynamic = ["version"]
 
