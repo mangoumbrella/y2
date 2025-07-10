@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 - Improved startup time for commands other than `y2 hig`.
+- Added a `--commit` flag to the `y2 xcode bump` command.
 
 ## v2025.4
 

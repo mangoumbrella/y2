@@ -14,6 +14,7 @@ def bump(
     xcode_project: pathlib.Path | None = None,
     store_version: bool = False,
     store_version_bump_year: bool = False,
+    commit: bool = False,
 ):
     if xcode_project:
         pbxproj = xcode_project / _PBXPROJ
@@ -26,6 +27,9 @@ def bump(
             console.fatal("Cannot find an Xcode project in the current directory.")
     if not pbxproj.exists():
         console.fatal(f"Xcode project not found: {pbxproj!s}")
+
+    if commit:
+        _ensure_git_clean()
 
     content = pbxproj.read_text()
     builds = re.findall(r"\n\s+VERSION_BUILD = (\d+);\s*\n", content)
@@ -59,6 +63,9 @@ def bump(
         )
     pbxproj.write_text(content)
 
+    if commit:
+        _commit_changes(store_version=store_version)
+
 
 def build_and_upload(project_dir: pathlib.Path | None = None):
     if project_dir:
@@ -84,3 +91,26 @@ def build_and_upload(project_dir: pathlib.Path | None = None):
     subprocess.check_call(
         ["bundle", "exec", "fastlane", "build_and_upload"], env=env, cwd=work_dir
     )
+
+
+def _ensure_git_clean() -> None:
+    result = subprocess.run(
+        ["git", "status", "--porcelain"], capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        console.fatal("Failed to check git status")
+
+    if result.stdout.strip():
+        console.fatal(
+            "Git status is not clean. Please commit or stash changes first. Changed files:\n\n"
+            + result.stdout
+        )
+
+
+def _commit_changes(store_version: bool) -> None:
+    subprocess.check_call(["git", "add", "."])
+    if store_version:
+        message = "Bump version after store release and uploading to TF."
+    else:
+        message = "Bump version after uploading to TF."
+    subprocess.check_call(["git", "commit", "-m", message])

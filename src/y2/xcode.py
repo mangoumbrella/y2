@@ -14,6 +14,7 @@ def bump(
     xcode_project: pathlib.Path | None = None,
     store_version: bool = False,
     store_version_bump_year: bool = False,
+    commit: bool = False,
 ):
     """Bump app versions."""
     from . import xcode_impl
@@ -22,6 +23,7 @@ def bump(
         xcode_project=xcode_project,
         store_version=store_version,
         store_version_bump_year=store_version_bump_year,
+        commit=commit,
     )
 
 
