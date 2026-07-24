@@ -28,10 +28,10 @@ keywords = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "beautifulsoup4>=4.13.4",
-    "cyclopts>=3.19.0",
-    "selenium>=4.33.0",
-    "yib>=0.3.0",
+    "beautifulsoup4>=4.15.0",
+    "cyclopts>=4.22.1",
+    "selenium>=4.46.0",
+    "yib>=0.4.0",
 ]
 dynamic = ["version"]
 
