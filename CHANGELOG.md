@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+Nothing noticeable unreleased.
+
+## v2026.1
+
+- New `y2 gh cleanup` command to cleanup unneeded branches.
 - Improved startup time for commands other than `y2 hig`.
 - Added a `--commit` flag to the `y2 xcode bump` command.
 
