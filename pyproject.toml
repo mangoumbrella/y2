@@ -31,6 +31,7 @@ requires-python = ">=3.10"
 dependencies = [
     "beautifulsoup4>=4.15.0",
     "cyclopts>=4.22.1",
+    "pyjwt[crypto]>=2.10.0",
     "selenium>=4.46.0",
     "yib>=0.4.0",
 ]
