@@ -11,15 +11,18 @@ def test_lazy_import():
         import sys
         import cyclopts
 
+        def show_help(target):
+            with contextlib.redirect_stdout(io.StringIO()):
+                with contextlib.suppress(SystemExit):
+                    target(["--help"])
+
         # There is not much help when the modules are imported after running --help by cyclopts.
         dummy_app = cyclopts.App()
-        with contextlib.redirect_stdout(io.StringIO()):
-            dummy_app(["--help"])
+        show_help(dummy_app)
         modules_before = set(sys.modules)
 
         from y2.__main__ import app
-        with contextlib.redirect_stdout(io.StringIO()):
-            app(["--help"])
+        show_help(app)
         # Exclude modules from y2 itself.
         modules_after = set(
             m
