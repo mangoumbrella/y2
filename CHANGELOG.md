@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+Nothing noticeable unreleased.
+
+## v2026.2
+
 - New `y2 asc iap` commands to manage in-app purchase localizations on App Store Connect: `list`, `localizations`, `sync`, `submit`, `template` and `locales`.
 - `y2` now depends on `pyjwt` to authenticate with the App Store Connect API.
 
