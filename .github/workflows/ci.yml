@@ -40,16 +40,28 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
+      # Read the Docs builds the docs with the newest CPython it offers, so
+      # build them here with the newest stable CPython too. uv has no "latest"
+      # request of its own, hence setup-python. "3.x" is never a free-threaded
+      # build; that would be spelled "3.14t".
+      - name: Install Python
+        id: python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
       - name: Install uv
         uses: astral-sh/setup-uv@v6
         with:
           version: "latest"
-          python-version: "3.14"
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Install docs dependencies
         run: uv sync --locked --extra docs
+        env:
+          UV_PYTHON: ${{ steps.python.outputs.python-path }}
       - name: Build docs
         run: uv run mkdocs build --strict
+        env:
+          UV_PYTHON: ${{ steps.python.outputs.python-path }}
