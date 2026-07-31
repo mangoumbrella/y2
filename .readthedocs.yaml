@@ -6,9 +6,7 @@ version: 2
 build:
   os: ubuntu-24.04
   tools:
-    # Tracks the newest CPython Read the Docs offers, currently 3.14. The
-    # alias never points at a free-threaded build.
-    python: "latest"
+    python: "3.14"
 
 mkdocs:
   configuration: mkdocs.yml
