@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-Nothing noticeable unreleased.
+- Add detailed instructions on how to set up xcode project for the version management feature.
 
 ## v2026.2
 
