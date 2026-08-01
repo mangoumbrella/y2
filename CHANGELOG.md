@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 - Add detailed instructions on how to set up xcode project for the version management feature.
+- New documentation site at [y2.readthedocs.io](https://y2.readthedocs.io), with a command reference generated from the CLI itself.
 
 ## v2026.2
 

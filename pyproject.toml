@@ -37,8 +37,16 @@ dependencies = [
 ]
 dynamic = ["version"]
 
+[project.optional-dependencies]
+docs = [
+    "mkdocs>=1.6.1",
+    "mkdocs-gen-files>=0.5.0",
+    "mkdocs-material>=9.6.0",
+]
+
 [project.urls]
 Home = "https://github.com/mangoumbrella/y2"
+Documentation = "https://y2.readthedocs.io"
 Source = "https://github.com/mangoumbrella/y2"
 
 [project.scripts]

@@ -36,3 +36,21 @@ jobs:
         run: uv sync --locked --dev
       - name: Run pytest
         run: uv run pytest
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      # Matches build.tools.python in .readthedocs.yaml.
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "latest"
+          python-version: "3.14"
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install docs dependencies
+        run: uv sync --locked --extra docs
+      - name: Build docs
+        run: uv run mkdocs build --strict
