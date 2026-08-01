@@ -1,6 +1,4 @@
-# y2
-
-Why have two when one will do?
+# y2 documentation
 
 `y2` is a command line tool that collects the small chores that come up while
 shipping an app: talking to App Store Connect, bumping Xcode versions, tidying
@@ -56,6 +54,14 @@ y2 pv y2
 
 Every command, flag and environment variable is listed under
 [Commands](commands.md), generated from `y2` itself.
+
+```{toctree}
+:maxdepth: 1
+:caption: Contents
+
+commands
+changelog
+```
 
 ## Source
 

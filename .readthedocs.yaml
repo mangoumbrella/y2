@@ -8,8 +8,8 @@ build:
   tools:
     python: "3.14"
 
-mkdocs:
-  configuration: mkdocs.yml
+sphinx:
+  configuration: docs/conf.py
   fail_on_warning: true
 
 # The command reference is generated from the cyclopts app at build time, so

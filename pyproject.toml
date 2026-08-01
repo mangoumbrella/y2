@@ -38,10 +38,12 @@ dependencies = [
 dynamic = ["version"]
 
 [project.optional-dependencies]
+# Markers because the docs toolchain needs a newer Python than y2 itself does,
+# and the resolver has to satisfy every version in requires-python.
 docs = [
-    "mkdocs>=1.6.1",
-    "mkdocs-gen-files>=0.5.0",
-    "mkdocs-material>=9.6.0",
+    "myst-parser>=4.0.1; python_version>='3.13'",
+    "sphinx>=8.2.3; python_version>='3.13'",
+    "sphinx-rtd-theme>=3.0.2; python_version>='3.13'",
 ]
 
 [project.urls]

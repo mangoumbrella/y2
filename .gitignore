@@ -73,6 +73,9 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+# Written by docs/conf.py at build time.
+docs/commands.md
+docs/changelog.md
 
 # PyBuilder
 .pybuilder/
