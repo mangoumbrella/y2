@@ -1,3 +1,5 @@
+.DS_Store
+
 # Hatch-managed version file
 src/y2/_version.py
 
